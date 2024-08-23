@@ -3,14 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Models\Customer;
+use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Http\Request;
 
 class CustomerController extends Controller
 {
     /**
      * Display a listing of the resource.
+     *
+     * @param Request $request
+     * @return LengthAwarePaginator
      */
-    public function index(Request $request)
+    public function index(Request $request): LengthAwarePaginator
     {
         $query = Customer::query();
 
